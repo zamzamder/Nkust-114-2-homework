@@ -1,0 +1,83 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Project1.Application.Contracts/Project1.Application.Contracts.csproj" />
+    <Project Path="src/Project1.Application/Project1.Application.csproj" />
+    <Project Path="src/Project1.DbMigrator/Project1.DbMigrator.csproj" />
+    <Project Path="src/Project1.Domain.Shared/Project1.Domain.Shared.csproj" />
+    <Project Path="src/Project1.Domain/Project1.Domain.csproj" />
+    <Project Path="src/Project1.EntityFrameworkCore/Project1.EntityFrameworkCore.csproj" />
+    <Project Path="src/Project1.HttpApi.Client/Project1.HttpApi.Client.csproj" />
+    <Project Path="src/Project1.HttpApi/Project1.HttpApi.csproj" />
+    <Project Path="src/Project1.Web/Project1.Web.csproj" />
+  </Folder>
+  <Folder Name="/src/MapingTables/">
+    <File Path="../MapingTables/CNS2DCI.txt" />
+    <File Path="../MapingTables/CNS2FIN.txt" />
+    <File Path="../MapingTables/CNS2INC.txt" />
+    <File Path="../MapingTables/CNS2TAX.txt" />
+    <File Path="../MapingTables/全字庫中文對照表說明文件.txt" />
+  </Folder>
+  <Folder Name="/src/MapingTables/Big5/">
+    <File Path="../MapingTables/Big5/CNS2BIG5.txt" />
+    <File Path="../MapingTables/Big5/CNS2BIG5_Big5E.txt" />
+    <File Path="../MapingTables/Big5/CNS2BIG5_七個倚天外字.txt" />
+    <File Path="../MapingTables/Big5/CNS2BIG5_符號.txt" />
+  </Folder>
+  <Folder Name="/src/MapingTables/Unicode/">
+    <File Path="../MapingTables/Unicode/CNS2UNICODE_Unicode 15.txt" />
+    <File Path="../MapingTables/Unicode/CNS2UNICODE_Unicode 2.txt" />
+    <File Path="../MapingTables/Unicode/CNS2UNICODE_Unicode 3.txt" />
+    <File Path="../MapingTables/Unicode/CNS2UNICODE_Unicode BMP.txt" />
+  </Folder>
+  <Folder Name="/src/MapingTables/地政/">
+    <File Path="../MapingTables/地政/南投縣.txt" />
+    <File Path="../MapingTables/地政/台中市.txt" />
+    <File Path="../MapingTables/地政/台中縣.txt" />
+    <File Path="../MapingTables/地政/台北市.txt" />
+    <File Path="../MapingTables/地政/台北縣.txt" />
+    <File Path="../MapingTables/地政/台南市.txt" />
+    <File Path="../MapingTables/地政/台南縣.txt" />
+    <File Path="../MapingTables/地政/台東縣.txt" />
+    <File Path="../MapingTables/地政/嘉義市.txt" />
+    <File Path="../MapingTables/地政/嘉義縣.txt" />
+    <File Path="../MapingTables/地政/基隆市.txt" />
+    <File Path="../MapingTables/地政/宜蘭縣.txt" />
+    <File Path="../MapingTables/地政/屏東縣.txt" />
+    <File Path="../MapingTables/地政/彰化縣.txt" />
+    <File Path="../MapingTables/地政/新竹市.txt" />
+    <File Path="../MapingTables/地政/新竹縣.txt" />
+    <File Path="../MapingTables/地政/桃園縣.txt" />
+    <File Path="../MapingTables/地政/澎湖縣.txt" />
+    <File Path="../MapingTables/地政/花蓮縣.txt" />
+    <File Path="../MapingTables/地政/苗栗縣.txt" />
+    <File Path="../MapingTables/地政/連江縣.txt" />
+    <File Path="../MapingTables/地政/金門縣.txt" />
+    <File Path="../MapingTables/地政/雲林縣.txt" />
+    <File Path="../MapingTables/地政/高雄市.txt" />
+    <File Path="../MapingTables/地政/高雄縣.txt" />
+  </Folder>
+  <Folder Name="/src/Properties/">
+    <File Path="../Properties/CNS_cangjie.txt" />
+    <File Path="../Properties/CNS_component.txt" />
+    <File Path="../Properties/CNS_component_ref.txt" />
+    <File Path="../Properties/CNS_component_word.txt" />
+    <File Path="../Properties/CNS_component_word.zip" />
+    <File Path="../Properties/CNS_phonetic.txt" />
+    <File Path="../Properties/CNS_pinyin_1.txt" />
+    <File Path="../Properties/CNS_pinyin_2.txt" />
+    <File Path="../Properties/CNS_radical.txt" />
+    <File Path="../Properties/CNS_radical_word.txt" />
+    <File Path="../Properties/CNS_source.txt" />
+    <File Path="../Properties/CNS_stroke.txt" />
+    <File Path="../Properties/CNS_strokes_sequence.txt" />
+    <File Path="../Properties/全字庫屬性資料說明文件.txt" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/Project1.Application.Tests/Project1.Application.Tests.csproj" />
+    <Project Path="test/Project1.Domain.Tests/Project1.Domain.Tests.csproj" />
+    <Project Path="test/Project1.EntityFrameworkCore.Tests/Project1.EntityFrameworkCore.Tests.csproj" />
+    <Project Path="test/Project1.HttpApi.Client.ConsoleTestApp/Project1.HttpApi.Client.ConsoleTestApp.csproj" />
+    <Project Path="test/Project1.TestBase/Project1.TestBase.csproj" />
+    <Project Path="test/Project1.Web.Tests/Project1.Web.Tests.csproj" />
+  </Folder>
+</Solution>

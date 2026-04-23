@@ -1,0 +1,51 @@
+@page
+@model Project1.Web.Pages.CnsLookupModel
+@{
+    ViewData["Title"] = "CNS11643 琩高";
+}
+
+<h3>CNS11643 琩高籔癸酚</h3>
+
+<form method="post">
+    <div>
+        <label>块 CNS 絪絏 ┪ Unicode じ</label>
+        <input asp-for="Input" />
+    </div>
+    <div style="margin-top:8px;">
+        <button type="submit" formaction="?handler=LookupByCns">琩高 Unicodeパ CNS</button>
+        <button type="submit" formaction="?handler=LookupByChar">琩高 CNSパじ</button>
+    </div>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.UnicodeResult))
+{
+    <div style="margin-top:16px;">
+        <strong>Unicode 挡狦</strong>
+        <span style="font-size:24px">@Model.UnicodeResult</span>
+    </div>
+}
+
+@if (Model.CnsResults != null)
+{
+    <div style="margin-top:16px;">
+        <strong>CNS 絪絏</strong>
+        <ul>
+            @foreach (var c in Model.CnsResults)
+            {
+                <li>@c</li>
+            }
+        </ul>
+    </div>
+}
+
+@if (!ModelState.IsValid)
+{
+    <div style="color:red;margin-top:12px;">
+        <ul>
+            @foreach (var e in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                <li>@e.ErrorMessage</li>
+            }
+        </ul>
+    </div>
+}

@@ -1,0 +1,120 @@
+2026-04-20 15:02:31.820 +08:00 [INF] Started database migrations...
+2026-04-20 15:02:31.829 +08:00 [INF] Migrating schema for host database...
+2026-04-20 15:08:56.132 +08:00 [INF] Started database migrations...
+2026-04-20 15:08:56.141 +08:00 [INF] Migrating schema for host database...
+2026-04-20 15:08:58.726 +08:00 [ERR] Failed executing DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AbpAuditLogs" (
+    "Id" uniqueidentifier NOT NULL CONSTRAINT "PK_AbpAuditLogs" PRIMARY KEY,
+    "ApplicationName" nvarchar(96) NULL,
+    "UserId" uniqueidentifier NULL,
+    "UserName" nvarchar(256) NULL,
+    "TenantId" uniqueidentifier NULL,
+    "TenantName" nvarchar(64) NULL,
+    "ImpersonatorUserId" uniqueidentifier NULL,
+    "ImpersonatorUserName" nvarchar(256) NULL,
+    "ImpersonatorTenantId" uniqueidentifier NULL,
+    "ImpersonatorTenantName" nvarchar(64) NULL,
+    "ExecutionTime" datetime2 NOT NULL,
+    "ExecutionDuration" int NOT NULL,
+    "ClientIpAddress" nvarchar(64) NULL,
+    "ClientName" nvarchar(128) NULL,
+    "ClientId" nvarchar(64) NULL,
+    "CorrelationId" nvarchar(64) NULL,
+    "BrowserInfo" nvarchar(512) NULL,
+    "HttpMethod" nvarchar(16) NULL,
+    "Url" nvarchar(256) NULL,
+    "Exceptions" nvarchar(max) NULL,
+    "Comments" nvarchar(256) NULL,
+    "HttpStatusCode" int NULL,
+    "ExtraProperties" nvarchar(max) NOT NULL,
+    "ConcurrencyStamp" nvarchar(40) NOT NULL
+);
+2026-04-20 15:09:50.683 +08:00 [INF] Started database migrations...
+2026-04-20 15:09:50.692 +08:00 [INF] Migrating schema for host database...
+2026-04-20 15:09:52.901 +08:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AbpAuditLogs" (
+    "Id" uniqueidentifier NOT NULL CONSTRAINT "PK_AbpAuditLogs" PRIMARY KEY,
+    "ApplicationName" nvarchar(96) NULL,
+    "UserId" uniqueidentifier NULL,
+    "UserName" nvarchar(256) NULL,
+    "TenantId" uniqueidentifier NULL,
+    "TenantName" nvarchar(64) NULL,
+    "ImpersonatorUserId" uniqueidentifier NULL,
+    "ImpersonatorUserName" nvarchar(256) NULL,
+    "ImpersonatorTenantId" uniqueidentifier NULL,
+    "ImpersonatorTenantName" nvarchar(64) NULL,
+    "ExecutionTime" datetime2 NOT NULL,
+    "ExecutionDuration" int NOT NULL,
+    "ClientIpAddress" nvarchar(64) NULL,
+    "ClientName" nvarchar(128) NULL,
+    "ClientId" nvarchar(64) NULL,
+    "CorrelationId" nvarchar(64) NULL,
+    "BrowserInfo" nvarchar(512) NULL,
+    "HttpMethod" nvarchar(16) NULL,
+    "Url" nvarchar(256) NULL,
+    "Exceptions" nvarchar(max) NULL,
+    "Comments" nvarchar(256) NULL,
+    "HttpStatusCode" int NULL,
+    "ExtraProperties" nvarchar(max) NOT NULL,
+    "ConcurrencyStamp" nvarchar(40) NOT NULL
+);
+2026-04-20 15:44:29.846 +08:00 [INF] Started database migrations...
+2026-04-20 15:44:29.855 +08:00 [INF] Migrating schema for host database...
+2026-04-20 15:45:10.651 +08:00 [INF] Started database migrations...
+2026-04-20 15:45:10.660 +08:00 [INF] Migrating schema for host database...
+2026-04-20 15:45:12.905 +08:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AbpAuditLogs" (
+    "Id" uniqueidentifier NOT NULL CONSTRAINT "PK_AbpAuditLogs" PRIMARY KEY,
+    "ApplicationName" nvarchar(96) NULL,
+    "UserId" uniqueidentifier NULL,
+    "UserName" nvarchar(256) NULL,
+    "TenantId" uniqueidentifier NULL,
+    "TenantName" nvarchar(64) NULL,
+    "ImpersonatorUserId" uniqueidentifier NULL,
+    "ImpersonatorUserName" nvarchar(256) NULL,
+    "ImpersonatorTenantId" uniqueidentifier NULL,
+    "ImpersonatorTenantName" nvarchar(64) NULL,
+    "ExecutionTime" datetime2 NOT NULL,
+    "ExecutionDuration" int NOT NULL,
+    "ClientIpAddress" nvarchar(64) NULL,
+    "ClientName" nvarchar(128) NULL,
+    "ClientId" nvarchar(64) NULL,
+    "CorrelationId" nvarchar(64) NULL,
+    "BrowserInfo" nvarchar(512) NULL,
+    "HttpMethod" nvarchar(16) NULL,
+    "Url" nvarchar(256) NULL,
+    "Exceptions" nvarchar(max) NULL,
+    "Comments" nvarchar(256) NULL,
+    "HttpStatusCode" int NULL,
+    "ExtraProperties" nvarchar(max) NOT NULL,
+    "ConcurrencyStamp" nvarchar(40) NOT NULL
+);
+2026-04-20 15:45:33.855 +08:00 [INF] Started database migrations...
+2026-04-20 15:45:33.867 +08:00 [INF] Migrating schema for host database...
+2026-04-20 15:45:36.127 +08:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "AbpAuditLogs" (
+    "Id" uniqueidentifier NOT NULL CONSTRAINT "PK_AbpAuditLogs" PRIMARY KEY,
+    "ApplicationName" nvarchar(96) NULL,
+    "UserId" uniqueidentifier NULL,
+    "UserName" nvarchar(256) NULL,
+    "TenantId" uniqueidentifier NULL,
+    "TenantName" nvarchar(64) NULL,
+    "ImpersonatorUserId" uniqueidentifier NULL,
+    "ImpersonatorUserName" nvarchar(256) NULL,
+    "ImpersonatorTenantId" uniqueidentifier NULL,
+    "ImpersonatorTenantName" nvarchar(64) NULL,
+    "ExecutionTime" datetime2 NOT NULL,
+    "ExecutionDuration" int NOT NULL,
+    "ClientIpAddress" nvarchar(64) NULL,
+    "ClientName" nvarchar(128) NULL,
+    "ClientId" nvarchar(64) NULL,
+    "CorrelationId" nvarchar(64) NULL,
+    "BrowserInfo" nvarchar(512) NULL,
+    "HttpMethod" nvarchar(16) NULL,
+    "Url" nvarchar(256) NULL,
+    "Exceptions" nvarchar(max) NULL,
+    "Comments" nvarchar(256) NULL,
+    "HttpStatusCode" int NULL,
+    "ExtraProperties" nvarchar(max) NOT NULL,
+    "ConcurrencyStamp" nvarchar(40) NOT NULL
+);
