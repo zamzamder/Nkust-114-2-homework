@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration;
 using Volo.Abp.Uow;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
@@ -38,19 +39,21 @@ public class Project1EntityFrameworkCoreModule : AbpModule
 
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        var isDevelopment = string.Equals(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"), "Development", StringComparison.OrdinalIgnoreCase);
+        var configuration = context.Services.GetConfiguration();
 
         context.Services.AddAbpDbContext<Project1DbContext>(options =>
         {
-            /* Remove "includeAllEntities: true" to create
-             * default repositories only for aggregate roots */
+            // Remove "includeAllEntities: true" to create default repositories only for aggregate roots
             options.AddDefaultRepositories(includeAllEntities: true);
         });
 
-        // Choose provider based on environment: use Sqlite for Development, SqlServer otherwise.
+        // Choose provider based on the configured connection string.
+        // If the connection string looks like SQLite (contains "Data Source" or references a .db file), use Sqlite;
+        // otherwise default to SqlServer. This makes provider selection resilient to environment mismatches.
         Configure<AbpDbContextOptions>(options =>
         {
-            if (isDevelopment)
+            var conn = configuration.GetConnectionString("Default") ?? string.Empty;
+            if (conn.IndexOf("Data Source=", StringComparison.OrdinalIgnoreCase) >= 0 || conn.IndexOf('.' + "db", StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 options.UseSqlite();
             }

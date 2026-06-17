@@ -1,0 +1,153 @@
+@page
+@model Project1.Web.Pages.DbInspectModel
+@{
+    ViewData["Title"] = "Database Inspector";
+}
+
+<h1>Database Inspector</h1>
+
+<form method="post" class="form-inline">
+    <div class="mb-2">
+        <label asp-for="DbPath" class="form-label">Database file path:</label>
+        <input asp-for="DbPath" class="form-control" style="width:420px" />
+        <button type="submit" class="btn btn-primary ms-2">Inspect</button>
+    </div>
+
+    @if (Model.AvailableFiles?.Count > 0)
+    {
+        <div class="mt-3">
+            <label class="form-label">Available database files in project:</label>
+            <div class="list-group">
+            @foreach (var f in Model.AvailableFiles)
+            {
+                <label class="list-group-item">
+                    <input type="radio" name="DbPath" value="@f" @(Model.DbPath == f ? "checked" : "") />
+                    <span class="ms-2">@f</span>
+                </label>
+            }
+            </div>
+        </div>
+    }
+
+</form>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Html.Raw(Model.ErrorMessage.Replace("\n", "<br/>"))</div>
+}
+else if (Model.Tables?.Count > 0)
+{
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Tables / Views</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Rows</th>
+                        <th>Error</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @foreach (var t in Model.Tables)
+                {
+                    <tr class="@(t.Name == Model.SelectedTable ? "table-active" : "")">
+                        <td>
+                            <form method="post" asp-page-handler="Preview" style="display:inline">
+                                <input type="hidden" name="SelectedTable" value="@t.Name" />
+                                <button class="btn btn-link p-0">@t.Name</button>
+                            </form>
+                        </td>
+                        <td>@t.Type</td>
+                        <td>@t.Count</td>
+                        <td>@t.Error</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <h2>Table Actions</h2>
+            <form method="post" asp-page-handler="Preview" class="mb-2">
+                <input type="hidden" name="SelectedTable" value="@Model.SelectedTable" />
+                <div class="mb-2">
+                    <label class="form-label">Preview rows:</label>
+                    <input type="number" name="PreviewRows" value="@Model.PreviewRows" class="form-control" style="width:120px; display:inline-block; margin-left:8px" />
+                    <button class="btn btn-primary ms-2">Preview</button>
+                </div>
+            </form>
+
+            <form method="post" asp-page-handler="Schema" class="mb-2">
+                <input type="hidden" name="SelectedTable" value="@Model.SelectedTable" />
+                <button class="btn btn-secondary">Show Schema</button>
+            </form>
+
+            <form method="post" asp-page-handler="Export">
+                <input type="hidden" name="SelectedTable" value="@Model.SelectedTable" />
+                <button class="btn btn-outline-success">Export CSV</button>
+            </form>
+
+            <hr />
+            <h3>Ad-hoc SQL (admins)</h3>
+            @if (User?.IsInRole("Admin") ?? false)
+            {
+                <form method="post" asp-page-handler="Query">
+                    <div class="mb-2">
+                        <textarea name="AdHocSql" class="form-control" rows="4">@Model.AdHocSql</textarea>
+                    </div>
+                    <button class="btn btn-warning">Run (READ-ONLY)</button>
+                </form>
+            }
+            else
+            {
+                <div class="text-muted">Ad-hoc SQL is restricted to administrators.</div>
+            }
+        </div>
+    </div>
+
+    @if (Model.TableColumns?.Count > 0)
+    {
+        <h3>Schema: @Model.SelectedTable</h3>
+        <table class="table table-sm">
+            <thead><tr><th>Name</th><th>Type</th><th>NotNull</th><th>Default</th><th>PK</th></tr></thead>
+            <tbody>
+            @foreach (var c in Model.TableColumns)
+            {
+                <tr><td>@c.Name</td><td>@c.Type</td><td>@c.NotNull</td><td>@c.DefaultValue</td><td>@c.IsPk</td></tr>
+            }
+            </tbody>
+        </table>
+    }
+
+    @if (Model.PreviewData?.Count > 0)
+    {
+        <h3>Preview: @Model.SelectedTable</h3>
+        <table class="table table-bordered table-sm">
+            <thead>
+                <tr>
+                @foreach (var h in Model.PreviewData[0].Keys)
+                {
+                    <th>@h</th>
+                }
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var row in Model.PreviewData)
+            {
+                <tr>
+                @foreach (var v in row.Values)
+                {
+                    <td>@(v ?? "")</td>
+                }
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <p>Enter a database path and click Inspect.</p>
+}
