@@ -263,3 +263,14 @@ src/Project1.Blazor.Server.Tiered/Logs/*
 
 # Use abp install-libs to restore.
 **/wwwroot/libs/*
+
+# Ignore local database files and journals
+*.db
+*.db-journal
+
+# Ignore root and project log folders
+Logs/
+*.log
+
+# Ignore user lock files and editor state
+.vscode/
